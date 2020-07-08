@@ -64,47 +64,45 @@ public class LoginActivity extends AppCompatActivity  {
                         sendPost(struser, strpassword);
                     }
 
-                    /**if (stremail.equals("rene@admin.com")&&strpassword.equals("123456"))
-                    {
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        view.getContext().startActivity(intent);}
-                    else {
-                        Toast.makeText(LoginActivity.this, "Usuario o Contrasena incorrecto ", Toast.LENGTH_SHORT).show();
-                    }**/
                 }
             });
 
         }
-
-    public void sendPost(String struser, String strpassword) {
+//Metodo donde se envia los parametros para ejecutar el post a auth/login
+    public void sendPost(String struser, final String strpassword) {
             mAPIService.savePost(struser,strpassword).enqueue(new Callback<LoginPost>() {
                 @Override
                 public void onResponse(Call<LoginPost> call, Response<LoginPost> response) {
-                    if(response.isSuccessful()) {
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(intent);
-                        /**int rol = response.body().getRol();
-                        int userid = response.body().getUserid();
-                        String token = response.body().getToken().toString();
-                        String message = response.body().getMessage().toString();
-                        //showResponse(response.body().getRol().toString());
-                        Log.i(TAG, "post submitted to API." + response.body().toString());**/
-                    }
-                }
+//Validacion de la repuesta de post y envio de data a otro activity
+                   if(response.body().getUserid()!=null) {
 
+                       int rolid = response.body().getRol();
+                       int userid = response.body().getUserid();
+                       String token = response.body().getToken();
+
+                       Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        intent.putExtra("token", token);
+                        intent.putExtra("userid", userid);
+                        intent.putExtra("rolid", rolid);
+
+                        startActivity(intent);
+                      /**
+                        Log.i(TAG, "post submitted to API." + response.body().toString());**/
+                   }
+                   else
+                   {
+                       Toast.makeText(LoginActivity.this, "Usuario o Contrasena incorrecto", Toast.LENGTH_SHORT).show();
+
+                   }
+
+                }
                 @Override
                 public void onFailure(Call<LoginPost> call, Throwable t) {
 
-                    Toast.makeText(LoginActivity.this, "Usuario o Contrasena incorrecto ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Problema con la conexion a internet. Intente mas tarde", Toast.LENGTH_SHORT).show();
                 }
             });
 
     }
 
- /**   public void showResponse(String response) {
-        if(mResponseTv.getVisibility() == View.GONE) {
-            mResponseTv.setVisibility(View.VISIBLE);
-        }
-        mResponseTv.setText(response);
-    }**/
 }
