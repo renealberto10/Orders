@@ -80,7 +80,7 @@ public class LoginActivity extends AppCompatActivity  {
                        int userid = response.body().getUserid();
                        String token = response.body().getToken();
 
-                       Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                       Intent intent = new Intent(LoginActivity.this, MenuActivity.class);
                         intent.putExtra("token", token);
                         intent.putExtra("userid", userid);
                         intent.putExtra("rolid", rolid);
