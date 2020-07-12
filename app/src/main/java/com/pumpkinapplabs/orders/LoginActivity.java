@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -29,8 +30,10 @@ public class LoginActivity extends AppCompatActivity  {
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
+            if (getSupportActionBar() != null) {
+                getSupportActionBar().hide();
+            }
             setContentView(R.layout.activity_login);
-            mResponseTv = findViewById(R.id.tv_response);
             edtuser = findViewById(R.id.user_login);
             edtpassword = findViewById(R.id.password_login);
             btnlogin = findViewById(R.id.btnlogin);
@@ -73,6 +76,7 @@ public class LoginActivity extends AppCompatActivity  {
             mAPIService.savePost(struser,strpassword).enqueue(new Callback<LoginPost>() {
                 @Override
                 public void onResponse(Call<LoginPost> call, Response<LoginPost> response) {
+                    Log.i(TAG, "post submitted to API." + response.body().toString());
 //Validacion de la repuesta de post y envio de data a otro activity
                    if(response.body().getUserid()!=null) {
 
