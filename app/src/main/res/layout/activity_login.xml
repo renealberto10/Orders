@@ -20,7 +20,7 @@
     <EditText
         android:id="@+id/user_login"
         android:layout_width="325dp"
-        android:layout_height="50dp"
+        android:layout_height="35dp"
         android:background="@drawable/rounded_corner"
         android:drawableLeft="@drawable/ic_user"
         android:ems="18"
@@ -28,15 +28,14 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.25" />
+        app:layout_constraintVertical_bias="0.234" />
 
     <EditText
         android:id="@+id/password_login"
         android:layout_width="325dp"
-        android:layout_height="50dp"
+        android:layout_height="35dp"
         android:background="@drawable/rounded_corner"
         android:drawableLeft="@drawable/ic_password"
         android:ems="18"
@@ -44,24 +43,24 @@
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.354" />
+        app:layout_constraintVertical_bias="0.323" />
 
     <Button
         android:id="@+id/btnlogin"
         android:layout_width="330dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:background="@drawable/rounded_corner"
         android:backgroundTint="@color/colorPrimary"
         android:text="Ingresar"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.442" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

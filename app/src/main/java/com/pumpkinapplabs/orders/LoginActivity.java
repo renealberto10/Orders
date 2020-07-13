@@ -42,8 +42,7 @@ public class LoginActivity extends AppCompatActivity  {
                 @Override
                 public void onClick(View view) {
                     final ProgressDialog progressDialog = new ProgressDialog(LoginActivity.this);
-                    progressDialog.setMessage("Espere, procesando informacion...");
-                    progressDialog.show();
+
 
 //        After 2 Seconds i dismiss progress Dialog
 
@@ -52,7 +51,7 @@ public class LoginActivity extends AppCompatActivity  {
                         public void run() {
                             super.run();
                             try {
-                                Thread.sleep(2000);
+                                Thread.sleep(5000);
                                 if (progressDialog.isShowing())
                                     progressDialog.dismiss();
                             } catch (InterruptedException e) {
@@ -63,7 +62,11 @@ public class LoginActivity extends AppCompatActivity  {
                     String struser = edtuser.getText().toString().trim();
                     String strpassword = edtpassword.getText().toString().trim();
 
-                    if(!TextUtils.isEmpty(struser) && !TextUtils.isEmpty(strpassword)){
+                    if(TextUtils.isEmpty(struser) && TextUtils.isEmpty(strpassword)){
+                        Toast.makeText(LoginActivity.this, "Debe de digitar su Usuario o Contraseña", Toast.LENGTH_SHORT).show();
+                    }else {
+                        progressDialog.setMessage("Espere, procesando informacion...");
+                        progressDialog.show();
                         sendPost(struser, strpassword);
                     }
 
@@ -76,8 +79,8 @@ public class LoginActivity extends AppCompatActivity  {
             mAPIService.savePost(struser,strpassword).enqueue(new Callback<LoginPost>() {
                 @Override
                 public void onResponse(Call<LoginPost> call, Response<LoginPost> response) {
-                    Log.i(TAG, "post submitted to API." + response.body().toString());
-//Validacion de la repuesta de post y envio de data a otro activity
+
+                    //Validacion de la repuesta de post y envio de data a otro activity
                    if(response.body().getUserid()!=null) {
 
                        int rolid = response.body().getRol();
@@ -95,7 +98,7 @@ public class LoginActivity extends AppCompatActivity  {
                    }
                    else
                    {
-                       Toast.makeText(LoginActivity.this, "Usuario o Contrasena incorrecto", Toast.LENGTH_SHORT).show();
+                       Toast.makeText(LoginActivity.this, "Usuario o Contraseña incorrecto", Toast.LENGTH_SHORT).show();
 
                    }
 

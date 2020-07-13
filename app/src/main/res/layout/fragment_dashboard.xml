@@ -7,16 +7,117 @@
     tools:context=".ui.dashboard.DashboardFragment">
 
     <TextView
-        android:id="@+id/text_dashboard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
+        android:id="@+id/txtcusmtomer"
+        android:layout_width="325dp"
+        android:layout_height="30dp"
+        android:background="@drawable/rounded_corner"
+        android:ems="18"
+        android:gravity="center_vertical"
+        android:text="- Eligi o ingrese datos del cliente"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btnaddcliente"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/ic_anadircliente"
+        app:layout_constraintBottom_toBottomOf="@+id/txtcusmtomer"
+        app:layout_constraintEnd_toStartOf="@+id/btnsearchcliente"
+        app:layout_constraintHorizontal_bias="0.973"
+        app:layout_constraintStart_toStartOf="@+id/txtcusmtomer"
+        app:layout_constraintTop_toTopOf="@+id/txtcusmtomer"
+        app:layout_constraintVertical_bias="0.64" />
+
+    <Button
+        android:id="@+id/btnsearchcliente"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:background="@drawable/ic_buscar"
+        app:layout_constraintBottom_toBottomOf="@+id/txtcusmtomer"
+        app:layout_constraintEnd_toEndOf="@+id/txtcusmtomer"
+        app:layout_constraintHorizontal_bias="0.96"
+        app:layout_constraintStart_toStartOf="@+id/txtcusmtomer"
+        app:layout_constraintTop_toTopOf="@+id/txtcusmtomer"
+        app:layout_constraintVertical_bias="0.64" />
+
+    <Button
+        android:id="@+id/btnaddproducto"
+        android:layout_width="230dp"
+        android:layout_height="30dp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="@color/colorPrimary"
+        android:text="Agregar producto"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/divider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtcusmtomer" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="358dp"
+        android:layout_height="1dp"
+        android:background="?android:attr/listDivider"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/txtcusmtomer"
+        app:layout_constraintVertical_bias="0.118" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="354dp"
+        android:layout_height="226dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnaddproducto"
+        app:layout_constraintVertical_bias="0.06" />
+
+    <Button
+        android:id="@+id/btnsavepedido"
+        android:layout_width="230dp"
+        android:layout_height="30dp"
+        android:background="@drawable/rounded_corner"
+        android:backgroundTint="#44bd32"
+        android:text="Guarda Pedido"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+        app:layout_constraintVertical_bias="0.217"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/txttotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Total: $ "
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnsavepedido"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.858"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+        app:layout_constraintVertical_bias="0.218" />
+
+    <TextView
+        android:id="@+id/txttotalsum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0.00"
+        app:layout_constraintBottom_toTopOf="@+id/btnsavepedido"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.951"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+        app:layout_constraintVertical_bias="0.218" />
 </androidx.constraintlayout.widget.ConstraintLayout>
