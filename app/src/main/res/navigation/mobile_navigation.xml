@@ -3,23 +3,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_inicio">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.pumpkinapplabs.orders.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_inicio"
+        android:name="com.pumpkinapplabs.orders.ui.inicio.InicioFragment"
+        android:label="@string/title_inicio"
+        tools:layout="@layout/fragment_inicio" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.pumpkinapplabs.orders.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_pedidos"
+        android:name="com.pumpkinapplabs.orders.ui.pedidos.PedidosFragment"
+        android:label="@string/title_pedidos"
+        tools:layout="@layout/fragment_pedidos" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.pumpkinapplabs.orders.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_inventory"
+        android:name="com.pumpkinapplabs.orders.ui.inventory.InventoryFragment"
+        android:label="@string/title_inventory"
+        tools:layout="@layout/fragment_inventory" />
+
 </navigation>
