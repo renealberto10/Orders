@@ -1,15 +1,18 @@
 package com.pumpkinapplabs.orders.data.model;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+//modelo de datos que se recibe de la consulta de la api
 public class LoginPost {
     @SerializedName("message")
     @Expose
     private String message;
-    @SerializedName("token")
+    @SerializedName("access_token")
     @Expose
-    private String token;
+    private String access_token;
     @SerializedName("token_type")
     @Expose
     private String tokenType;
@@ -29,11 +32,11 @@ public class LoginPost {
     }
 
     public String getToken() {
-        return token;
+        return access_token;
     }
 
     public void setToken(String token) {
-        this.token = token;
+        this.access_token = access_token;
     }
 
     public String getTokenType() {
@@ -60,15 +63,29 @@ public class LoginPost {
         this.rol = rol;
     }
 
-    @Override
+    public LoginPost(String message, String access_token, String tokenType, Integer userid, Integer rol) {
+        this.message = message;
+        this.access_token = access_token;
+        this.tokenType = tokenType;
+        this.userid = userid;
+        this.rol = rol;
+    }
+
+    /** public static LoginPost parseJSON(String response){
+        Gson gson = new GsonBuilder().create();
+        LoginPost login = gson.fromJson(response,LoginPost.class);
+        return login;
+
+    }**/
+    /*@Override
     public String toString() {
         return "LoginPost{" +
                 "message='" + message + '\'' +
-                ", token='" + token + '\'' +
+                ", access_token='" + access_token + '\'' +
                 ", tokenType='" + tokenType + '\'' +
                 ", userid=" + userid +
                 ", rol=" + rol +
                 '}';
-    }
+    }*/
 }
 

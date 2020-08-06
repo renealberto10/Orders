@@ -6,7 +6,7 @@ import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
-
+//informacion que se envia para la solicitud con el api
 public interface APIService {
     @POST("auth/login")
     @FormUrlEncoded
