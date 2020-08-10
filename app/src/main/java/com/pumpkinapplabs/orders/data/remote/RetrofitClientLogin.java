@@ -7,7 +7,7 @@ import com.pumpkinapplabs.orders.data.model.LoginPost;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 //Recibe objecto para desarializar json de lo que devuelve el modelo
-public class RetrofitClient {
+public class RetrofitClientLogin {
     private static Retrofit retrofit = null;
 
     public static Retrofit getClient(String baseUrl) {

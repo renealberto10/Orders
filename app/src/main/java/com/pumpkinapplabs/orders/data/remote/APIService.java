@@ -1,15 +1,28 @@
 package com.pumpkinapplabs.orders.data.remote;
 
+import com.pumpkinapplabs.orders.data.model.InventarioData;
+import com.pumpkinapplabs.orders.data.model.Inventories;
 import com.pumpkinapplabs.orders.data.model.LoginPost;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.GET;
+import retrofit2.http.Header;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
+import retrofit2.http.Path;
+import retrofit2.http.Query;
+
 //informacion que se envia para la solicitud con el api
 public interface APIService {
     @POST("auth/login")
     @FormUrlEncoded
     Call<LoginPost> savePost(@Field("username")String username,
                              @Field ("password") String password);
+
+    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+    @GET("inventory")
+    Call<Inventories> getInventory(@Header("Authorization") String token);
 }
+

@@ -11,11 +11,12 @@
         android:id="@+id/user_login"
         android:layout_width="325dp"
         android:layout_height="40dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="52dp"
         android:background="@drawable/rounded_corner"
         android:hint="Usuario"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         tools:ignore="MissingConstraints" />
@@ -24,7 +25,7 @@
         android:id="@+id/btnlogin"
         android:layout_width="330dp"
         android:layout_height="45dp"
-        android:background="@drawable/rounded_corner"
+        android:background="@drawable/rounded_buttom"
         android:backgroundTint="@color/colorPrimary"
         android:text="Ingresar"
         android:textColor="#FFFFFF"
@@ -44,19 +45,19 @@
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/user_login"
-        app:layout_constraintVertical_bias="0.065" />
+        app:layout_constraintVertical_bias="0.066" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="347dp"
-        android:layout_height="142dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="484dp"
+        android:layout_height="279dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/loginlogo" />
+        app:srcCompat="@drawable/ic_logo" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

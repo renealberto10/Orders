@@ -1,9 +1,11 @@
 package com.pumpkinapplabs.orders;
 
+import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -14,6 +16,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.github.johnpersano.supertoasts.library.Style;
+import com.github.johnpersano.supertoasts.library.SuperActivityToast;
+import com.github.johnpersano.supertoasts.library.utils.PaletteUtils;
 import com.pumpkinapplabs.orders.data.model.LoginPost;
 import com.pumpkinapplabs.orders.data.remote.APIService;
 import com.pumpkinapplabs.orders.data.remote.ApiUtils;
@@ -53,11 +58,29 @@ public class LoginActivity extends AppCompatActivity  {
 
         }
 
+        //Metodo super toast para mostrar notificaciones interativas y personalizadas
+        @SuppressLint("WrongConstant")
+        public void message (String messages){
+            final String MATERIAL_COLOR = "f95d5d";
+            SuperActivityToast.create(this, new Style(), Style.TYPE_BUTTON)
+                    //.setButtonText("UNDO")
+                    //.setButtonIconResource(R.drawable.ic_buscar)
+                    //.setOnButtonClickListener("good_tag_name", null, onButtonClickListener)
+                    .setProgressBarColor(Color.WHITE)
+                    .setText(messages)
+                    .setDuration(Style.DURATION_LONG)
+                    .setFrame(Style.FRAME_LOLLIPOP)
+                    //.setColor(PaletteUtils.getSolidColor(PaletteUtils.MATERIAL_LIGHT_BLUE))
+                    .setColor(PaletteUtils.getSolidColor(MATERIAL_COLOR))
+                    .setAnimations(Style.ANIMATIONS_POP).show();
+        }
+
     public void saveLoginUser(LoginPost response){
         SharedPreferences.Editor saveinfo = preferencias.edit();
-                    saveinfo.putInt("userid", response.getUserid());
-                    saveinfo.putString("access_token", response.getToken());
+                    saveinfo.putInt("user_id", response.getUserid());
+                    saveinfo.putString("token", response.getToken());
                     saveinfo.putInt("rol", response.getRol());
+                    saveinfo.apply();
 
     }
    public void LoginUser(){
@@ -66,11 +89,15 @@ public class LoginActivity extends AppCompatActivity  {
        String strpassword = edtpassword.getText().toString().trim();
 
        if(TextUtils.isEmpty(struser)){
-           Toast.makeText(LoginActivity.this, "Debe de digitar su Usuario", Toast.LENGTH_SHORT).show();
+           String msj = "Debe de digitar su Usuario";
+           message(msj);
+           //Toast.makeText(LoginActivity.this, "Debe de digitar su Usuario", Toast.LENGTH_SHORT).show();
            progress.dismiss();
 
        }else if(TextUtils.isEmpty(strpassword)){
-           Toast.makeText(LoginActivity.this, "Debe de digitar su Contraseña", Toast.LENGTH_SHORT).show();
+           String msj = "Debe de digitar su Contraseña";
+           message(msj);
+           //Toast.makeText(LoginActivity.this, "Debe de digitar su Contraseña", Toast.LENGTH_SHORT).show();
            progress.dismiss();
        }
         else {
@@ -99,6 +126,7 @@ public void loginUser(LoginPost response){
                     Intent i = new Intent(this, MenuActivity.class);
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(i);
+                    progress.dismiss();
                     this.finish();
                 }
 
@@ -127,7 +155,9 @@ public void loginUser(LoginPost response){
             @Override
             public void onFailure(Call<LoginPost> call, Throwable t) {
                 progress.dismiss();
-                Toast.makeText(LoginActivity.this, "Usuario o Contraseña incorrecto", Toast.LENGTH_LONG).show();
+                String msj = "Usuario o Contraseña incorrecto";
+                message(msj);
+                //Toast.makeText(LoginActivity.this, "Usuario o Contraseña incorrecto", Toast.LENGTH_LONG).show();
 
             }
         });

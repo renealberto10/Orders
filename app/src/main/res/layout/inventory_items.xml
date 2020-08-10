@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/txtsendername"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_list"
+        android:padding="8dp"
+        android:text="T"
+        android:textAlignment="center"
+        android:textColor="#FFF" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+
+        <TextView
+            android:id="@+id/tvarticle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="3dp"
+            android:text="Articulo"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvprice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Precio Unitario"
+            android:textStyle="bold"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/tvstock"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Precio Unitario"
+            android:textSize="12dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
