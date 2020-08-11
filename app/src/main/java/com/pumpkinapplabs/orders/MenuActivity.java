@@ -7,14 +7,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.pumpkinapplabs.orders.adapters.InventoryAdapter;
-import com.pumpkinapplabs.orders.data.model.InventarioData;
+import com.google.gson.Gson;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
+import com.google.gson.reflect.TypeToken;
 import com.pumpkinapplabs.orders.data.model.Inventories;
+import com.pumpkinapplabs.orders.data.model.InventoryData;
 import com.pumpkinapplabs.orders.data.remote.APIService;
-import com.pumpkinapplabs.orders.data.remote.InventoryrRetrofit;
+import com.pumpkinapplabs.orders.data.remote.InventoryRetrofit;
+import com.pumpkinapplabs.orders.data.remote.Service;
 import com.pumpkinapplabs.orders.data.utils.PreferencesSave;
 import com.pumpkinapplabs.orders.ui.inventory.InventoryFragment;
 
@@ -24,8 +27,8 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,9 +37,7 @@ import retrofit2.Response;
 public class MenuActivity extends AppCompatActivity implements InventoryFragment.OnFragmentInteractionListener {
 
     private SharedPreferences preferencias;
-    private APIService Service;
-    private Call<Inventories> inventoriesCall;
-    private List<InventarioData> list = new ArrayList();
+    private ArrayList<Inventories> list = new ArrayList<>();
 
 
     @Override
@@ -44,8 +45,8 @@ public class MenuActivity extends AppCompatActivity implements InventoryFragment
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         preferencias = getSharedPreferences("preferencias", Context.MODE_PRIVATE);
-        Service = InventoryrRetrofit.getApiInvetory().create(APIService.class);
         getdatainventory();
+
 
       //  if (getSupportActionBar() != null) {
        //    getSupportActionBar().hide();
@@ -88,27 +89,54 @@ public class MenuActivity extends AppCompatActivity implements InventoryFragment
 
     //Este evento clic hereda del fragment Inventory
     @Override
-    public void onListClick(InventarioData inventory) {
+    public void onListClick(InventoryData inventory) {
     }
 
 public void getdatainventory() {
     String token = PreferencesSave.getToken(preferencias);
-    inventoriesCall = Service.getInventory(token);
-    inventoriesCall.enqueue(new Callback<Inventories>() {
-        @Override
-        public void onResponse(Call<Inventories> call, Response<Inventories> response) {
-           Inventories list = response.body();
-           Log.d("JSON: ", list.toString());
+    Service serviceAPI = InventoryRetrofit.getClient();
+    Call<ArrayList<Inventories>> loadInventory = serviceAPI.getInventory(token);
 
+    loadInventory.enqueue(new Callback<ArrayList<Inventories>>() {
+        @Override
+        public void onResponse(Call<ArrayList<Inventories>> call, Response<ArrayList<Inventories>> response) {
+            try {
+                String invString = response.body().toString();
+                Type listType = new TypeToken<ArrayList<Inventories>>(){}.getType();
+                list = getInventoryJSON(invString,listType);
+                Log.d("Return", invString);
+            }
+            catch (Exception e){
+                Log.d("onResponse", "There is an error");
+                e.printStackTrace();
+            }
         }
 
         @Override
-        public void onFailure(Call<Inventories> call, Throwable t) {
-          Toast.makeText(MenuActivity.this, "Error", Toast.LENGTH_LONG).show();
+        public void onFailure(Call<ArrayList<Inventories>> call, Throwable t) {
+            Log.d("onFailure", t.toString());
         }
     });
+
+
 }
 
 
+
+    public static <T> ArrayList<Inventories> getInventoryJSON (String jsonString, Type type) {
+        if (!isValid(jsonString)) {
+            return null;
+        }
+        return new Gson().fromJson(jsonString, type);
+    }
+
+    public static boolean isValid(String json) {
+        try {
+            new JsonParser().parse(json);
+            return true;
+        } catch (JsonSyntaxException jse) {
+            return false;
+        }
+    }
 
 }

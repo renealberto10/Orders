@@ -1,6 +1,6 @@
 package com.pumpkinapplabs.orders.data.utils;
 
-import com.pumpkinapplabs.orders.data.model.InventarioData;
+import com.pumpkinapplabs.orders.data.model.InventoryData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,53 +14,53 @@ public class Util {
                         "03A9F4", "009688", "4CAF50", "CDDC39", "FFC107",
                         "FF5722", "795548", "9E9E9E", "455A64", "FF5722"};
 
-        public static List<InventarioData> getDummyData() {
-            return new ArrayList<InventarioData>() {{
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
-                add(new InventarioData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+        public static List<InventoryData> getDummyData() {
+            return new ArrayList<InventoryData>() {{
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
+                add(new InventoryData(1,"Marcarilla NK95", 23, 33.0f, 0.2f));
 
 
 
