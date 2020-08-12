@@ -10,13 +10,14 @@ public class Inventories {
 
     @SerializedName("data")
     @Expose
-    private List<InventoryData> data = null;
+    private List<ItemInventory> data = null;
 
-    public List<InventoryData> getData() {
+
+    public List<ItemInventory> getData() {
         return data;
     }
 
-    public void setData(List<InventoryData> data) {
+    public void setData(List<ItemInventory> data) {
         this.data = data;
     }
 }

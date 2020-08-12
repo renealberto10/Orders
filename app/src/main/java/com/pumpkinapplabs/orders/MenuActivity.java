@@ -12,10 +12,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
-import com.google.gson.reflect.TypeToken;
 import com.pumpkinapplabs.orders.data.model.Inventories;
-import com.pumpkinapplabs.orders.data.model.InventoryData;
-import com.pumpkinapplabs.orders.data.remote.APIService;
+import com.pumpkinapplabs.orders.data.model.ItemInventory;
 import com.pumpkinapplabs.orders.data.remote.InventoryRetrofit;
 import com.pumpkinapplabs.orders.data.remote.Service;
 import com.pumpkinapplabs.orders.data.utils.PreferencesSave;
@@ -29,6 +27,7 @@ import androidx.navigation.ui.NavigationUI;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,7 +36,7 @@ import retrofit2.Response;
 public class MenuActivity extends AppCompatActivity implements InventoryFragment.OnFragmentInteractionListener {
 
     private SharedPreferences preferencias;
-    private ArrayList<Inventories> list = new ArrayList<>();
+    private Call<Inventories> list;
 
 
     @Override
@@ -89,21 +88,22 @@ public class MenuActivity extends AppCompatActivity implements InventoryFragment
 
     //Este evento clic hereda del fragment Inventory
     @Override
-    public void onListClick(InventoryData inventory) {
+    public void onListClick(ItemInventory inventory) {
     }
 
 public void getdatainventory() {
     String token = PreferencesSave.getToken(preferencias);
     Service serviceAPI = InventoryRetrofit.getClient();
-    Call<ArrayList<Inventories>> loadInventory = serviceAPI.getInventory(token);
+    list = serviceAPI.getInventory("Bearer "+token);
 
-    loadInventory.enqueue(new Callback<ArrayList<Inventories>>() {
+    list.enqueue(new Callback<Inventories>() {
         @Override
-        public void onResponse(Call<ArrayList<Inventories>> call, Response<ArrayList<Inventories>> response) {
+        public void onResponse(Call <Inventories> call, Response<Inventories> response) {
             try {
-                String invString = response.body().toString();
-                Type listType = new TypeToken<ArrayList<Inventories>>(){}.getType();
-                list = getInventoryJSON(invString,listType);
+                response.body().getData();
+                String invString = response.body().getData().toString();
+              //  Type listType = new TypeToken<ArrayList<Inventories>>(){}.getType();
+              //  list = getInventoryJSON(invString,listType);
                 Log.d("Return", invString);
             }
             catch (Exception e){
@@ -113,7 +113,7 @@ public void getdatainventory() {
         }
 
         @Override
-        public void onFailure(Call<ArrayList<Inventories>> call, Throwable t) {
+        public void onFailure(Call<Inventories> call, Throwable t) {
             Log.d("onFailure", t.toString());
         }
     });

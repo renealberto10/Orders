@@ -10,17 +10,17 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.pumpkinapplabs.orders.R;
-import com.pumpkinapplabs.orders.data.model.InventoryData;
+import com.pumpkinapplabs.orders.data.model.ItemInventory;
 
 import java.util.List;
 
 public class InventoryAdapter extends BaseAdapter {
     private Context context;
     private int layout;
-    private List<InventoryData> list;
+    private List<ItemInventory> list;
     private int ARTICLE_MAX_LENGHT = 40;
 
-    public InventoryAdapter (Context context, int layout, List<InventoryData> list){
+    public InventoryAdapter (Context context, int layout, List<ItemInventory> list){
         this.context = context;
         this.layout = layout;
         this.list = list;
@@ -30,7 +30,7 @@ public class InventoryAdapter extends BaseAdapter {
     public int getCount() { return list.size(); }
 
     @Override
-    public InventoryData getItem(int position) { return list.get(position); }
+    public ItemInventory getItem(int position) { return list.get(position); }
 
     @Override
     public long getItemId(int id) { return id; }
@@ -52,7 +52,7 @@ public class InventoryAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        InventoryData currentInventory = getItem(position);
+        ItemInventory currentInventory = getItem(position);
 
         //mostrar titulos mas cortos
         String shortArticle;

@@ -143,6 +143,7 @@ public void loginUser(LoginPost response){
                     if(response.body() !=null){
                         Log.i("Conexion exitosa", response.body().toString());
                         LoginPost jsonresponse = response.body();
+                        Log.d("",response.body().toString());
                         loginUser(jsonresponse);
                     }
                     else{

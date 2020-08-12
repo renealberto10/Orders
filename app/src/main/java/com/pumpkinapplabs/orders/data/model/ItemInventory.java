@@ -4,7 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import com.pumpkinapplabs.orders.data.utils.Util;
 
-public class InventoryData {
+public class ItemInventory {
 
         @SerializedName("id")
         @Expose
@@ -23,7 +23,7 @@ public class InventoryData {
         private float commission;
         private String color;
 
-    public InventoryData(Integer id, String description, Integer stock, float price, float commission) {
+    public ItemInventory(Integer id, String description, Integer stock, float price, float commission) {
         this.id = id;
         this.description = description;
         this.stock = stock;

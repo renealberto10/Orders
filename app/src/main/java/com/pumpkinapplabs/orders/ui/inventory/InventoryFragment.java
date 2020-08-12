@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import com.pumpkinapplabs.orders.R;
 import com.pumpkinapplabs.orders.adapters.InventoryAdapter;
-import com.pumpkinapplabs.orders.data.model.InventoryData;
+import com.pumpkinapplabs.orders.data.model.ItemInventory;
 import com.pumpkinapplabs.orders.data.model.Inventories;
 import com.pumpkinapplabs.orders.data.remote.APIService;
 import com.pumpkinapplabs.orders.data.utils.Util;
@@ -29,7 +29,7 @@ public class InventoryFragment extends Fragment {
     private List<Inventories> inventario = new ArrayList<>();
 
     private ListView listView;
-    private List<InventoryData> inventory_list;
+    private List<ItemInventory> inventory_list;
     private InventoryAdapter adapter;
 
     private OnFragmentInteractionListener mListener;
@@ -72,6 +72,6 @@ public class InventoryFragment extends Fragment {
     }
 
     public interface OnFragmentInteractionListener {
-        void onListClick(InventoryData inventory);
+        void onListClick(ItemInventory inventory);
     }
 }
