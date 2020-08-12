@@ -11,6 +11,7 @@ import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
 
+import com.pumpkinapplabs.orders.MenuActivity;
 import com.pumpkinapplabs.orders.R;
 import com.pumpkinapplabs.orders.adapters.InventoryAdapter;
 import com.pumpkinapplabs.orders.data.model.ItemInventory;
@@ -40,6 +41,7 @@ public class InventoryFragment extends Fragment {
     @Override
     public View onCreateView (LayoutInflater inflater, ViewGroup container,
                               Bundle savedInstanceState){
+
         View view = inflater.inflate(R.layout.fragment_inventory, container, false);
         listView = (ListView) view.findViewById(R.id.listViewInventory);
         inventory_list = Util.getDummyData();

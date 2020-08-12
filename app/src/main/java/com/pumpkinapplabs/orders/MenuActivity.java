@@ -12,6 +12,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.gson.Gson;
 import com.google.gson.JsonParser;
 import com.google.gson.JsonSyntaxException;
+import com.google.gson.reflect.TypeToken;
 import com.pumpkinapplabs.orders.data.model.Inventories;
 import com.pumpkinapplabs.orders.data.model.ItemInventory;
 import com.pumpkinapplabs.orders.data.remote.InventoryRetrofit;
@@ -37,6 +38,7 @@ public class MenuActivity extends AppCompatActivity implements InventoryFragment
 
     private SharedPreferences preferencias;
     private Call<Inventories> list;
+    private String token;
 
 
     @Override
@@ -44,6 +46,8 @@ public class MenuActivity extends AppCompatActivity implements InventoryFragment
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         preferencias = getSharedPreferences("preferencias", Context.MODE_PRIVATE);
+        token = PreferencesSave.getToken(preferencias);
+
         getdatainventory();
 
 
@@ -62,6 +66,8 @@ public class MenuActivity extends AppCompatActivity implements InventoryFragment
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
        NavigationUI.setupWithNavController(navView, navController);
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -92,7 +98,6 @@ public class MenuActivity extends AppCompatActivity implements InventoryFragment
     }
 
 public void getdatainventory() {
-    String token = PreferencesSave.getToken(preferencias);
     Service serviceAPI = InventoryRetrofit.getClient();
     list = serviceAPI.getInventory("Bearer "+token);
 
@@ -100,11 +105,10 @@ public void getdatainventory() {
         @Override
         public void onResponse(Call <Inventories> call, Response<Inventories> response) {
             try {
-                response.body().getData();
-                String invString = response.body().getData().toString();
-              //  Type listType = new TypeToken<ArrayList<Inventories>>(){}.getType();
-              //  list = getInventoryJSON(invString,listType);
-                Log.d("Return", invString);
+
+              response.body().getData();
+
+
             }
             catch (Exception e){
                 Log.d("onResponse", "There is an error");
@@ -118,25 +122,5 @@ public void getdatainventory() {
         }
     });
 
-
 }
-
-
-
-    public static <T> ArrayList<Inventories> getInventoryJSON (String jsonString, Type type) {
-        if (!isValid(jsonString)) {
-            return null;
-        }
-        return new Gson().fromJson(jsonString, type);
-    }
-
-    public static boolean isValid(String json) {
-        try {
-            new JsonParser().parse(json);
-            return true;
-        } catch (JsonSyntaxException jse) {
-            return false;
-        }
-    }
-
 }
