@@ -22,13 +22,15 @@ import com.pumpkinapplabs.orders.data.utils.Util;
 import java.util.ArrayList;
 import java.util.List;
 
+import retrofit2.Call;
+
 public class InventoryFragment extends Fragment {
 
     private SharedPreferences preferencias;
     private APIService mAPIService;
 
     private List<Inventories> inventario = new ArrayList<>();
-
+    private Call<Inventories> list;
     private ListView listView;
     private List<ItemInventory> inventory_list;
     private InventoryAdapter adapter;

@@ -17,6 +17,7 @@ import com.pumpkinapplabs.orders.data.model.Inventories;
 import com.pumpkinapplabs.orders.data.model.ItemInventory;
 import com.pumpkinapplabs.orders.data.remote.InventoryRetrofit;
 import com.pumpkinapplabs.orders.data.remote.Service;
+import com.pumpkinapplabs.orders.data.utils.Constants;
 import com.pumpkinapplabs.orders.data.utils.PreferencesSave;
 import com.pumpkinapplabs.orders.ui.inventory.InventoryFragment;
 
@@ -41,10 +42,12 @@ public class MenuActivity extends AppCompatActivity implements InventoryFragment
     private String token;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
+        Constants.instance(this.getApplicationContext());
         preferencias = getSharedPreferences("preferencias", Context.MODE_PRIVATE);
         token = PreferencesSave.getToken(preferencias);
 
@@ -106,10 +109,11 @@ public void getdatainventory() {
         public void onResponse(Call <Inventories> call, Response<Inventories> response) {
             try {
 
-              response.body().getData();
+                List<ItemInventory> arrayList = response.body().getData();
+                Log.e("TAG", "response 33: "+new Gson().toJson(response.body()) );
 
 
-            }
+        }
             catch (Exception e){
                 Log.d("onResponse", "There is an error");
                 e.printStackTrace();
@@ -121,6 +125,7 @@ public void getdatainventory() {
             Log.d("onFailure", t.toString());
         }
     });
+
 
 }
 }
