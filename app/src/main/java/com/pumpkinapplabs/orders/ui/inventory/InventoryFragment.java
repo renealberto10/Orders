@@ -1,7 +1,6 @@
 package com.pumpkinapplabs.orders.ui.inventory;
 
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,26 +10,14 @@ import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
 
-import com.pumpkinapplabs.orders.MenuActivity;
 import com.pumpkinapplabs.orders.R;
 import com.pumpkinapplabs.orders.adapters.InventoryAdapter;
 import com.pumpkinapplabs.orders.data.model.ItemInventory;
-import com.pumpkinapplabs.orders.data.model.Inventories;
-import com.pumpkinapplabs.orders.data.remote.APIService;
-import com.pumpkinapplabs.orders.data.utils.Util;
+import com.pumpkinapplabs.orders.data.utils.Inventory;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import retrofit2.Call;
-
 public class InventoryFragment extends Fragment {
-
-    private SharedPreferences preferencias;
-    private APIService mAPIService;
-
-    private List<Inventories> inventario = new ArrayList<>();
-    private Call<Inventories> list;
     private ListView listView;
     private List<ItemInventory> inventory_list;
     private InventoryAdapter adapter;
@@ -46,7 +33,8 @@ public class InventoryFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_inventory, container, false);
         listView = (ListView) view.findViewById(R.id.listViewInventory);
-        inventory_list = Util.getDummyData();
+        Inventory.getdatainventory();
+        inventory_list = Inventory.getDummyData();
         adapter = new InventoryAdapter(getContext(), R.layout.inventory_items, inventory_list);
 
         listView.setAdapter(adapter);

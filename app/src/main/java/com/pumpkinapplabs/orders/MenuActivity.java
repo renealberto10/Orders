@@ -37,9 +37,9 @@ import retrofit2.Response;
 
 public class MenuActivity extends AppCompatActivity implements InventoryFragment.OnFragmentInteractionListener {
 
-    private SharedPreferences preferencias;
-    private Call<Inventories> list;
-    private String token;
+   // private SharedPreferences preferencias;
+  //  private Call<Inventories> list;
+   // private String token;
 
 
 
@@ -48,10 +48,10 @@ public class MenuActivity extends AppCompatActivity implements InventoryFragment
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         Constants.instance(this.getApplicationContext());
-        preferencias = getSharedPreferences("preferencias", Context.MODE_PRIVATE);
-        token = PreferencesSave.getToken(preferencias);
+      //  preferencias = getSharedPreferences("preferencias", Context.MODE_PRIVATE);
+      //  token = PreferencesSave.getToken(preferencias);
 
-        getdatainventory();
+   //     getdatainventory();
 
 
       //  if (getSupportActionBar() != null) {
@@ -99,7 +99,7 @@ public class MenuActivity extends AppCompatActivity implements InventoryFragment
     @Override
     public void onListClick(ItemInventory inventory) {
     }
-
+/**
 public void getdatainventory() {
     Service serviceAPI = InventoryRetrofit.getClient();
     list = serviceAPI.getInventory("Bearer "+token);
@@ -127,5 +127,5 @@ public void getdatainventory() {
     });
 
 
-}
+}**/
 }

@@ -66,7 +66,7 @@ public class InventoryAdapter extends BaseAdapter {
         //Mostrar solo la primera letra del articulo
         holder.sender.setText(currentInventory.getDescription().substring(0, 1));
         //Obtener el color para mostrar con la letra del articulo
-        holder.sender.getBackground().setColorFilter(Color.parseColor("#" + currentInventory.getColor()), PorterDuff.Mode.SRC);
+//        holder.sender.getBackground().setColorFilter(Color.parseColor("#" + currentInventory.getColor()), PorterDuff.Mode.SRC);
         holder.price.setText("Precio Unitario: $" + currentInventory.getPrice());
         holder.stock.setText("Cantidad disponibles: " + currentInventory.getStock());
         return convertView;

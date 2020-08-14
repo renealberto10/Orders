@@ -18,9 +18,13 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class Util {
-    private Call<Inventories> list;
-    String token = (Constants.instance().fetchValueString("token"));
+public class Inventory {
+
+
+    private static Call<Inventories> list;
+    static String token = (Constants.instance().fetchValueString("token"));
+    static List<ItemInventory> array = new ArrayList<>();
+
 
         public static String[] colors = new String[]
                 {"F44336", "E91E63", "9C27B0", "673AB7", "3F51B5",
@@ -28,7 +32,7 @@ public class Util {
                         "FF5722", "795548", "9E9E9E", "455A64", "FF5722"};
 
         public static List<ItemInventory> getDummyData() {
-            return new ArrayList<ItemInventory>();
+            return array;
         }
 
         public static String getRandomColor() {
@@ -38,17 +42,15 @@ public class Util {
             return colors[randonNumber];
         }
 
-    public void getdatainventory() {
+    public static void getdatainventory() {
 
         Service serviceAPI = InventoryRetrofit.getClient();
         list = serviceAPI.getInventory("Bearer "+token);
-
         list.enqueue(new Callback<Inventories>() {
             @Override
             public void onResponse(Call <Inventories> call, Response<Inventories> response) {
                 try {
-
-                    List<ItemInventory> arrayList = response.body().getData();
+                    array = response.body().getData();
 
                 }
                 catch (Exception e){
@@ -62,9 +64,7 @@ public class Util {
                 Log.d("onFailure", t.toString());
             }
         });
-
-
     }
 
 
-    }
+}
