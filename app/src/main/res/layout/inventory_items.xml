@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
+    android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="10dp">
 
@@ -10,7 +10,7 @@
         android:layout_width="36dp"
         android:layout_height="36dp"
         android:layout_gravity="center"
-        android:background="@drawable/rounded_list"
+        android:background="@drawable/rounded_list_inventory"
         android:padding="8dp"
         android:text="T"
         android:textAlignment="center"
@@ -46,6 +46,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Precio Unitario"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/tvcodigo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Codigo"
             android:textSize="12dp" />
 
     </LinearLayout>

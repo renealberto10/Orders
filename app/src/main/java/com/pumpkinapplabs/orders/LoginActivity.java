@@ -50,7 +50,9 @@ public class LoginActivity extends AppCompatActivity  {
                 @Override
                 public void onClick(View view) {
                     progress = new ProgressDialog(LoginActivity.this);
+                    progress.setTitle("Validando credenciales");
                     progress.setMessage("Espere, procesando informacion...");
+                    progress.setProgressStyle(ProgressDialog.STYLE_SPINNER);
                     progress.show();
                 LoginUser();
                 }

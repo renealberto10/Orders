@@ -21,7 +21,7 @@ public class ItemInventory {
         @SerializedName("commission")
         @Expose
         private float commission;
-        private String color;
+        private String color ;
 
     public ItemInventory(Integer id, String description, Integer stock, float price, float commission) {
         this.id = id;

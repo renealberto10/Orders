@@ -18,6 +18,7 @@ import com.pumpkinapplabs.orders.data.model.ItemInventory;
 import com.pumpkinapplabs.orders.data.remote.InventoryRetrofit;
 import com.pumpkinapplabs.orders.data.remote.Service;
 import com.pumpkinapplabs.orders.data.utils.Constants;
+import com.pumpkinapplabs.orders.data.utils.Inventory;
 import com.pumpkinapplabs.orders.data.utils.PreferencesSave;
 import com.pumpkinapplabs.orders.ui.inventory.InventoryFragment;
 
@@ -37,28 +38,13 @@ import retrofit2.Response;
 
 public class MenuActivity extends AppCompatActivity implements InventoryFragment.OnFragmentInteractionListener {
 
-   // private SharedPreferences preferencias;
-  //  private Call<Inventories> list;
-   // private String token;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         Constants.instance(this.getApplicationContext());
-      //  preferencias = getSharedPreferences("preferencias", Context.MODE_PRIVATE);
-      //  token = PreferencesSave.getToken(preferencias);
-
-   //     getdatainventory();
-
-
-      //  if (getSupportActionBar() != null) {
-       //    getSupportActionBar().hide();
-      // }
-
-
+        Inventory.getdatainventory();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -99,33 +85,5 @@ public class MenuActivity extends AppCompatActivity implements InventoryFragment
     @Override
     public void onListClick(ItemInventory inventory) {
     }
-/**
-public void getdatainventory() {
-    Service serviceAPI = InventoryRetrofit.getClient();
-    list = serviceAPI.getInventory("Bearer "+token);
 
-    list.enqueue(new Callback<Inventories>() {
-        @Override
-        public void onResponse(Call <Inventories> call, Response<Inventories> response) {
-            try {
-
-                List<ItemInventory> arrayList = response.body().getData();
-                Log.e("TAG", "response 33: "+new Gson().toJson(response.body()) );
-
-
-        }
-            catch (Exception e){
-                Log.d("onResponse", "There is an error");
-                e.printStackTrace();
-            }
-        }
-
-        @Override
-        public void onFailure(Call<Inventories> call, Throwable t) {
-            Log.d("onFailure", t.toString());
-        }
-    });
-
-
-}**/
 }
