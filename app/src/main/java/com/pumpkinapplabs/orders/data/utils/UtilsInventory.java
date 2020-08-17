@@ -1,14 +1,10 @@
 package com.pumpkinapplabs.orders.data.utils;
 
-import android.app.Application;
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.pumpkinapplabs.orders.data.model.Inventories;
 import com.pumpkinapplabs.orders.data.model.ItemInventory;
-import com.pumpkinapplabs.orders.data.remote.InventoryRetrofit;
+import com.pumpkinapplabs.orders.data.remote.RetrofitAPI;
 import com.pumpkinapplabs.orders.data.remote.Service;
 
 import java.util.ArrayList;
@@ -20,7 +16,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class Inventory extends Application {
+public class UtilsInventory {
 
 
     private static Call<Inventories> list;
@@ -36,6 +32,13 @@ public class Inventory extends Application {
                         "03A9F4", "009688", "4CAF50", "CDDC39", "FFC107",
                         "FF5722", "795548", "9E9E9E", "455A64", "FF5722"};
 
+    public static String getRandomColor() {
+        // Número aleatorio entre [0] y [14];
+        int randonNumber = new Random().nextInt(colors.length);
+        // Devolvemos el color
+        return colors[randonNumber];
+    }
+
        public static List<ItemInventory> getArrayInventory() {
            /* return new ArrayList<ItemInventory>(){{
                 add(new ItemInventory(1,"Macarararar", 9, 4.3f, 3.4f));
@@ -48,16 +51,10 @@ public class Inventory extends Application {
         }
 
 
-        public static String getRandomColor() {
-            // Número aleatorio entre [0] y [14];
-           int randonNumber = new Random().nextInt(colors.length);
-            // Devolvemos el color
-            return colors[randonNumber];
-        }
 
     public static void getdatainventory() {
 
-        Service serviceAPI = InventoryRetrofit.getClient();
+        Service serviceAPI = RetrofitAPI.getClient();
         list = serviceAPI.getInventory("Bearer "+token);
 
         list.enqueue(new Callback<Inventories>() {

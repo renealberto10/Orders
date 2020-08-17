@@ -1,5 +1,6 @@
 package com.pumpkinapplabs.orders.data.remote;
 
+import com.pumpkinapplabs.orders.data.model.Customer;
 import com.pumpkinapplabs.orders.data.model.Inventories;
 
 import java.util.ArrayList;
@@ -14,4 +15,9 @@ public interface Service {
     @Headers({ "Content-Type: application/json;charset=UTF-8"})
     @GET("inventory")
     Call<Inventories> getInventory(@Header("Authorization") String Authorization);
+
+    @Headers({ "Content-Type: application/json;charset=UTF-8"})
+    @GET("customer")
+    Call<Customer> getCustomer(@Header("Authorization") String Authorization);
 }
+

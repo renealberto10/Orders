@@ -2,7 +2,7 @@ package com.pumpkinapplabs.orders.data.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.pumpkinapplabs.orders.data.utils.Inventory;
+import com.pumpkinapplabs.orders.data.utils.UtilsInventory;
 
 public class ItemInventory {
 
@@ -29,7 +29,7 @@ public class ItemInventory {
         this.stock = stock;
         this.price = price;
         this.commission = commission;
-        this.color = Inventory.getRandomColor();
+        this.color = UtilsInventory.getRandomColor();
     }
 
     public Integer getId() {

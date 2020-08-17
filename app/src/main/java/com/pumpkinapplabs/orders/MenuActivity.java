@@ -1,25 +1,17 @@
 package com.pumpkinapplabs.orders;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.gson.Gson;
-import com.google.gson.JsonParser;
-import com.google.gson.JsonSyntaxException;
-import com.google.gson.reflect.TypeToken;
-import com.pumpkinapplabs.orders.data.model.Inventories;
+import com.pumpkinapplabs.orders.data.model.ItemCustomer;
 import com.pumpkinapplabs.orders.data.model.ItemInventory;
-import com.pumpkinapplabs.orders.data.remote.InventoryRetrofit;
-import com.pumpkinapplabs.orders.data.remote.Service;
 import com.pumpkinapplabs.orders.data.utils.Constants;
-import com.pumpkinapplabs.orders.data.utils.Inventory;
-import com.pumpkinapplabs.orders.data.utils.PreferencesSave;
+import com.pumpkinapplabs.orders.data.utils.UtilCustomer;
+import com.pumpkinapplabs.orders.data.utils.UtilsInventory;
+import com.pumpkinapplabs.orders.ui.inventory.CustomerFragment;
 import com.pumpkinapplabs.orders.ui.inventory.InventoryFragment;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -28,15 +20,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
-public class MenuActivity extends AppCompatActivity implements InventoryFragment.OnFragmentInteractionListener {
+public class MenuActivity extends AppCompatActivity /*implements InventoryFragment.OnFragmentInteractionListener*/ {
 
 
     @Override
@@ -44,12 +28,13 @@ public class MenuActivity extends AppCompatActivity implements InventoryFragment
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         Constants.instance(this.getApplicationContext());
-        Inventory.getdatainventory();
+        UtilsInventory.getdatainventory();
+        UtilCustomer.getdatacustomer();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_inicio, R.id.navigation_pedidos, R.id.navigation_inventory,R.id.navigation_inventory)
+                R.id.navigation_inicio, R.id.navigation_pedidos, R.id.navigation_inventory)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
@@ -82,8 +67,12 @@ public class MenuActivity extends AppCompatActivity implements InventoryFragment
     }
 
     //Este evento clic hereda del fragment Inventory
-    @Override
+   /* @Override
     public void onListClick(ItemInventory inventory) {
-    }
+    }*/
 
+    //Este evento clic hereda del fragment Inventory
+  //  @Override
+  //  public void onListClick(ItemCustomer customer) {
+  //  }
 }

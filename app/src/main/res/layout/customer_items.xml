@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/tvsendercustomer"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_gravity="center"
+        android:background="@drawable/rounded_list_customer"
+        android:padding="8dp"
+        android:text="T"
+        android:textAlignment="center"
+        android:textColor="#FFF" />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+
+        <TextView
+            android:id="@+id/tvcompany"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="3dp"
+            android:text="Company"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvcontact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Contact Name"
+            android:textStyle="bold"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/tvaddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Address"
+            android:textSize="12dp" />
+        <TextView
+            android:id="@+id/tvcellphone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cellphone"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/tvcode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Codigo"
+            android:textSize="12dp" />
+
+    </LinearLayout>
+
+</LinearLayout>
