@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_activity_menu">MainActivity</string>
+    <string name="title_inicio">Inicio</string>
+    <string name="title_pedidos">Crear Pedido</string>
+    <string name="title_inventory">Inventario</string>
+    <string name="create_order">Crear Pedido</string>
+    <string name="customer">Cliente</string>
+    <string name="address">Direccion</string>
+    <string name="detail">Detalle de Pedido</string>
+    <string name="select_custumer">Seleccionar Cliente</string>
+    <string name="enter_address">Ingrese direccion de entrega</string>
+    <string name="enter_detail">Ingrese detalle </string>
+    <string name="payment">Tipo de Pago</string>
+    <string name="delivery">Tipo de Entrega</string>
+    <string name="next">Siguiente</string>
+    <string name="home_delivery">Domicilio</string>
+    <string name="local_delivery">Local</string>
+    <string name="credit_card">Tarjeta de Credito</string>
+    <string name="cash">Contado</string>
+    <string name="user">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="sign_in">Ingresar</string>
+    <string name="sign_out">Cerrar Sesion</string>
+    <string name="cancel">Cancelar</string>
+    <string name="add_article">Agregar Articulos</string>
+</resources>

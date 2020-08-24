@@ -13,7 +13,7 @@
         android:layout_height="40dp"
         android:layout_marginTop="52dp"
         android:background="@drawable/rounded_corner"
-        android:hint="Usuario"
+        android:hint="@string/user"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.514"
@@ -25,23 +25,24 @@
         android:id="@+id/btnlogin"
         android:layout_width="330dp"
         android:layout_height="45dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/rounded_buttom"
         android:backgroundTint="@color/colorPrimary"
-        android:text="Ingresar"
+        android:text="@string/sign_in"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password_login"
-        app:layout_constraintVertical_bias="0.094" />
+        app:layout_constraintVertical_bias="0.007" />
 
     <EditText
         android:id="@+id/password_login"
         android:layout_width="325dp"
         android:layout_height="40dp"
         android:background="@drawable/rounded_corner"
-        android:hint="Contraseña"
+        android:hint="@string/password"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,6 +59,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_logo" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="48dp"
+        android:text="PumpkinLabs all rights reserved © 2020"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

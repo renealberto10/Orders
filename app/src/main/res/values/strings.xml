@@ -1,8 +1,26 @@
 <resources>
     <string name="title_activity_menu">MainActivity</string>
-    <string name="title_inicio">Inicio</string>
-    <string name="title_pedidos">Crear Pedido</string>
-    <string name="title_inventory">Inventario</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_inicio">Home</string>
+    <string name="title_pedidos">Create Order</string>
+    <string name="title_inventory">Inventory</string>
+    <string name="create_order">Create Order</string>
+    <string name="customer">Customer</string>
+    <string name="address">Address</string>
+    <string name="detail">Details</string>
+    <string name="select_custumer">Select Customer</string>
+    <string name="enter_address">Enter delivery address</string>
+    <string name="enter_detail">Enter detail </string>
+    <string name="payment">Type Payment</string>
+    <string name="delivery">Type Delivery</string>
+    <string name="credit_card">Credit Card</string>
+    <string name="cash">Cash</string>
+    <string name="next">Next</string>
+    <string name="home_delivery">Home Delivery</string>
+    <string name="local_delivery">Local Delivery</string>
+    <string name="user">Username</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sing In</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="cancel">Cancel</string>
+    <string name="add_article">Add Article</string>
 </resources>
