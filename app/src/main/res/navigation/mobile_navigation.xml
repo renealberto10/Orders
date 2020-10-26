@@ -8,18 +8,18 @@
     <fragment
         android:id="@+id/navigation_home"
         android:name="com.pumpkinapplabs.orders.ui.inicio.InicioFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:label=""
+        tools:layout="@layout/fragment_inicio" />
 
     <fragment
         android:id="@+id/navigation_dashboard"
         android:name="com.pumpkinapplabs.orders.ui.pedidos.PedidosFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:label=""
+        tools:layout="@layout/fragment_inventory" />
 
     <fragment
         android:id="@+id/navigation_notifications"
         android:name="com.pumpkinapplabs.orders.ui.inventory.InventoryFragment"
         android:label=""
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_customer" />
 </navigation>
